@@ -1,7 +1,7 @@
 package ru.stqa.training.selenium;
 
 import org.junit.Test;
-import ru.stqa.*;
+import ru.stqa.menupage.*;
 
 public class MenuTest extends TestBase {
 
@@ -100,100 +100,90 @@ public class MenuTest extends TestBase {
 
     loginTest.loginPageObjectTest();
     menuAdmin.clickAppearanceSection();
-    templatePage.clickTemplateSection();
-    templatePage.isElementPresent();
+    templatePage.clickTemplateSection()
+            .isElementPresent();
     logotypePage.clickLogotypeSection();
     menuAdmin.clickCatalogSection();
-    catalogPage.clickCatalogSection();
-    catalogPage.isElementPresent();
-    productGroupsPages.clickProductGroupsSection();
-    productGroupsPages.isElementPresent();
-    optionGroupsPages.clickOptionGroupsSection();
-    optionGroupsPages.isElementPresent();
-    manufacturersPages.clickManufacturersSection();
-    manufacturersPages.isElementPresent();
-    suppliersPages.clickSuppliersSection();
-    suppliersPages.isElementPresent();
-    deliveryStatusesPages.clickDeliveryStatusesSection();
-    deliveryStatusesPages.isElementPresent();
-    soldOutStatusesPages.clickSoldOutStatusesSection();
-    soldOutStatusesPages.isElementPresent();
-    quantityUnitsPages.clickTQuantityUnitsSection();
-    quantityUnitsPages.isElementPresent();
-    catalogCsvImportPages.clickCatalogCsvImportSection();
-    catalogCsvImportPages.isElementPresent();
+    catalogPage.clickCatalogSection()
+            .isElementPresent();
+    productGroupsPages.clickProductGroupsSection()
+            .isElementPresent();
+    optionGroupsPages.clickOptionGroupsSection()
+            .isElementPresent();
+    manufacturersPages.clickManufacturersSection()
+            .isElementPresent();
+    suppliersPages.clickSuppliersSection()
+            .isElementPresent();
+    deliveryStatusesPages.clickDeliveryStatusesSection()
+            .isElementPresent();
+    soldOutStatusesPages.clickSoldOutStatusesSection()
+            .isElementPresent();
+    quantityUnitsPages.clickTQuantityUnitsSection()
+            .isElementPresent();
+    catalogCsvImportPages.clickCatalogCsvImportSection()
+            .isElementPresent();
     menuAdmin.clickCountriesSection();
     countriesPages.isElementPresent();
     menuAdmin.clickCurrenciesSection();
     currenciesPages.isElementPresent();
     menuAdmin.clickCustomersSection();
-    customersPages.clickCustomersSection();
-    customersPages.isElementPresent();
-    customersCsvImportPages.clickCustomersCsvImportSection();
-    customersCsvImportPages.isElementPresent();
-    newsletterPages.clickNewsletterSection();
-    newsletterPages.isElementPresent();
+    customersPages.clickCustomersSection()
+            .isElementPresent();
+    customersCsvImportPages.clickCustomersCsvImportSection()
+            .isElementPresent();
+    newsletterPages.clickNewsletterSection()
+            .isElementPresent();
     menuAdmin.clickGeoZonesSection();
     geoZonesPages.isElementPresent();
     menuAdmin.clickLanguagesSection();
-    languagesPages.clickLanguagesSection();
-    languagesPages.isElementPresent();
-    storageEncodingPages.clickStorageEncodingSection();
-    storageEncodingPages.isElementPresent();
+    languagesPages.clickLanguagesSection()
+            .isElementPresent();
+    storageEncodingPages.clickStorageEncodingSection()
+            .isElementPresent();
     menuAdmin.clickModulesSection();
-    jobModulesPages.clickJobModulesSection();
-    jobModulesPages.isElementPresent();
-    customerModulesPages.clickCustomerModulesSection();
-    customerModulesPages.isElementPresent();
-    shippingModulesPages.clickShippingSection();
-    shippingModulesPages.isElementPresent();
-    paymentModulesPages.clickPaymentModulesSection();
-    paymentModulesPages.isElementPresent();
-    orderTotalModulesPages.clickOrderTotalSection();
-    orderTotalModulesPages.isElementPresent();
-    orderSuccessModulesPages.clickOrderSuccessSection();
-    orderSuccessModulesPages.isElementPresent();
-    orderActionModulesPages.clickOrderActionSection();
-    orderActionModulesPages.isElementPresent();
+    jobModulesPages.clickJobModulesSection()
+            .isElementPresent();
+    customerModulesPages.clickCustomerModulesSection()
+            .isElementPresent();
+    shippingModulesPages.clickShippingSection()
+            .isElementPresent();
+    paymentModulesPages.clickPaymentModulesSection()
+            .isElementPresent();
+    orderTotalModulesPages.clickOrderTotalSection()
+            .isElementPresent();
+    orderSuccessModulesPages.clickOrderSuccessSection()
+            .isElementPresent();
+    orderActionModulesPages.clickOrderActionSection()
+            .isElementPresent();
     menuAdmin.clickOrdersSection();
-    ordersPages.clickTOrdersSection();
-    ordersPages.isElementPresent();
-    orderStatusesPages.clickOrderStatusesSection();
-    orderStatusesPages.isElementPresent();
+    ordersPages.clickTOrdersSection()
+            .isElementPresent();
+    orderStatusesPages.clickOrderStatusesSection()
+            .isElementPresent();
     menuAdmin.clickPagesSection();
     pagesPages.isElementPresent();
     menuAdmin.clickReportsSection();
-    monthlyPages.clickMonthlySection();
-    monthlyPages.isElementPresent();
-    mostSoldProductsPages.clickMostSoldProductsSection();
-    mostSoldProductsPages.isElementPresent();
-    mostShoppingCustomersPages.clickMostShoppingCustomersSection();
-    mostSoldProductsPages.isElementPresent();
+    monthlyPages.clickMonthlySection().isElementPresent();
+    mostSoldProductsPages.clickMostSoldProductsSection()
+            .isElementPresent();
+    mostShoppingCustomersPages.clickMostShoppingCustomersSection()
+            .isElementPresent();
     menuAdmin.clickSettingsSection();
     settingsPages.isElementPresent();
-    settingsPages.clickSettingsSection();
-    settingsPages.clickDefaultsSection();
-    settingsPages.clickTitleSettingsPage();
-    settingsPages.clickGeneralSection();
-    settingsPages.clickListingsSection();
-    settingsPages.clickImagesSection();
-    settingsPages.clickCheckoutSection();
-    settingsPages.clickAdvancedSection();
-    settingsPages.clickSecuritySection();
+    settingsPages.clickSettingsSection().clickDefaultsSection()
+            .clickTitleSettingsPage().clickGeneralSection()
+            .clickListingsSection().clickImagesSection()
+            .clickCheckoutSection().clickAdvancedSection()
+            .clickSecuritySection();
     menuAdmin.clickSlidesSection();
     slidesPages.isElementPresent();
     menuAdmin.clickTaxSection();
-    taxClassesPages.clickTaxClassesSection();
-    taxClassesPages.isElementPresent();
-    taxRatesPages.clickTaxRatesSection();
-    taxRatesPages.isElementPresent();
+    taxClassesPages.clickTaxClassesSection().isElementPresent();
+    taxRatesPages.clickTaxRatesSection().isElementPresent();
     menuAdmin.clickTranslationsSection();
-    searchTranslationsPages.clickSearchTranslations();
-    searchTranslationsPages.isElementPresent();
-    scanFilesPages.clickScanFilesSection();
-    scanFilesPages.isElementPresent();
-    csvImportPages.clickCSVImportSection();
-    csvImportPages.isElementPresent();
+    searchTranslationsPages.clickSearchTranslations().isElementPresent();
+    scanFilesPages.clickScanFilesSection().isElementPresent();
+    csvImportPages.clickCSVImportSection().isElementPresent();
     menuAdmin.clickUsersSection();
     usersPages.isElementPresent();
     menuAdmin.clickVQmodsSection();

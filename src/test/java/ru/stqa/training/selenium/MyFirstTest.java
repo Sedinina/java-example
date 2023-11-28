@@ -16,4 +16,11 @@ public class MyFirstTest extends TestBase {
     wait.until(titleIs("webdriver - Поиск в Google"));
   }
 
+  @Test
+  public void mySecondTest() {
+    driver.get("http://localhost/litecart/en/");
+    driver.findElement(By.xpath("//li[contains(@class, 'product')]//div[contains(@class, 'sticker')]")).click();
+
+  }
+
 }

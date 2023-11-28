@@ -1,9 +1,7 @@
 package ru.stqa.training.selenium;
 
 import org.junit.Test;
-import org.openqa.selenium.By;
 import ru.stqa.LoginPage;
-import ru.stqa.MenuAdmin;
 
 public class LoginTest extends TestBase {
   private LoginPage loginPage;
