@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.stqa.LoginPage;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -42,13 +44,22 @@ public class TestBase {
 
   public boolean isElementPresent(By locator) {
     try {
-      //wait.until(webDriver -> driver.findElement(locator)); явное ожидание
       driver.findElement(locator);
       return true;
-    } catch (NoSuchElementException ex) { //TimeoutException
+    } catch (NoSuchElementException ex) { //
       return false;
     }
   }
+
+  public boolean isElementPresentExplicit(By locator) {
+    try {
+      wait.until(webDriver -> driver.findElement(locator)); //явное ожидание
+      return true;
+    } catch (TimeoutException ex) {
+      return false;
+    }
+  }
+
 
   @Before
   public void startFirefox() {

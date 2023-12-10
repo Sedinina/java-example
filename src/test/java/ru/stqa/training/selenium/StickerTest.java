@@ -17,8 +17,9 @@ public class StickerTest extends TestBase {
     driver.get("http://localhost/litecart/en/");
     List<WebElement> productList = driver.findElements(product);
 
-    for(WebElement s : productList){
-      Assert.assertEquals( s.findElements(sticker).size(), 1);
+    for (WebElement s : productList) {
+      Assert.assertEquals(s.findElements(sticker).size(), 1);
     }
+
   }
 }
