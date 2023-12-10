@@ -2,9 +2,7 @@ package ru.stqa.training.selenium;
 
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.Cookie;
-import org.openqa.selenium.HasCapabilities;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,6 +12,7 @@ import ru.stqa.LoginPage;
 
 import java.time.Duration;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class TestBase {
 
@@ -40,9 +39,21 @@ public class TestBase {
     driver.manage().deleteAllCookies();
   }*/
 
+
+  public boolean isElementPresent(By locator) {
+    try {
+      //wait.until(webDriver -> driver.findElement(locator)); явное ожидание
+      driver.findElement(locator);
+      return true;
+    } catch (NoSuchElementException ex) { //TimeoutException
+      return false;
+    }
+  }
+
   @Before
   public void startFirefox() {
     driver = new FirefoxDriver();
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //неявное ожидание
     wait = new WebDriverWait(driver, Duration.ofSeconds(20));
   }
 

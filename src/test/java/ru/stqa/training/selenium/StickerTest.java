@@ -1,23 +1,24 @@
 package ru.stqa.training.selenium;
 
+import org.junit.Assert;
 import org.junit.Test;
-import ru.stqa.shoppage.HomeShopPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class StickerTest extends TestBase {
 
   @Test
   public void countStickerTest() {
-    HomeShopPage homeShopPage = new HomeShopPage(driver);
+    By product = By.name("image-wrapper");
+    By sticker = By.className("sticker");
 
     driver.get("http://localhost/litecart/en/");
-    int countStickers = homeShopPage.getCountStickerList();
-    int countProduct = homeShopPage.getCountProductList();
-    if(countStickers>countProduct) {
-      System.out.println("Где-то есть лишний стикер");
-    } else if (countProduct>countStickers) {
-      System.out.println("Где-то не хватает стикера");
-    } else {
-      System.out.println("Количество стикеров совпадает с количеством товара");
+    List<WebElement> productList = driver.findElements(product);
+
+    for(WebElement s : productList){
+      Assert.assertEquals( s.findElements(sticker).size(), 1);
     }
   }
 }
