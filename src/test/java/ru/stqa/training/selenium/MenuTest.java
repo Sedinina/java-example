@@ -12,7 +12,6 @@ import java.util.List;
 public class MenuTest extends TestBase {
 
   private LoginTest loginTest;
-  private MenuTest menuTest;
 
 
   public List<String> getElementNames(List<WebElement> elements){
