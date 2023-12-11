@@ -11,7 +11,7 @@ public class StickerTest extends TestBase {
 
   @Test
   public void countStickerTest() {
-    By product = By.name("image-wrapper");
+    By product = By.cssSelector("li[class*=product]");
     By sticker = By.className("sticker");
 
     driver.get("http://localhost/litecart/en/");
