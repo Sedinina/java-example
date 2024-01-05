@@ -1,4 +1,4 @@
-package ru.stqa.training.selenium;
+package ru.stqa.training.selenium.test;
 
 import org.junit.Assert;
 import org.junit.Test;

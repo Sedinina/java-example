@@ -1,4 +1,4 @@
-package ru.stqa.training.selenium;
+package ru.stqa.training.selenium.test;
 
 import org.junit.After;
 import org.junit.Before;
@@ -61,9 +61,16 @@ public class TestBase {
   }
 
 
+//  @Before
+//  public void startFirefox() {
+//    driver = new FirefoxDriver();
+//    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //неявное ожидание
+//    wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//  }
+
   @Before
-  public void startFirefox() {
-    driver = new FirefoxDriver();
+  public void startChrome(){
+    driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //неявное ожидание
     wait = new WebDriverWait(driver, Duration.ofSeconds(20));
   }
