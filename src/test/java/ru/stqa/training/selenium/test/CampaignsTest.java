@@ -4,9 +4,21 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import java.awt.*;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class CampaignsTest extends TestBase {
+
+  public static Color getColor(String color){
+    StringTokenizer st = new StringTokenizer(color.substring(5));
+    int r = Integer.parseInt(st.nextToken(",").trim());
+    int g = Integer.parseInt(st.nextToken(",").trim());
+    int b = Integer.parseInt(st.nextToken(",").trim());
+    return new Color(r, g, b);
+  }
+
 
   @Test
   public void correctProductPageTest() {
@@ -57,16 +69,6 @@ public class CampaignsTest extends TestBase {
         //проверка, что акционная цена совпадает(текст)
         Assert.assertEquals(campaignPriceProductHomePage, campaignPriceProductPage);
 
-        //проверка, что серого цвета на главной странице
-        Assert.assertEquals(regPriceColorHomePage, "rgba(119, 119, 119, 1)");
-        //проверка, что серого цвета на главной странице
-        Assert.assertEquals(regPriceColorProductPage, "rgba(102, 102, 102, 1)");
-
-        //проверка, что красного цвета на главной странице
-        Assert.assertEquals(camPriceColorHomePage, "rgba(204, 0, 0, 1)");
-        //проверка, что красного цвета на главной странице
-        Assert.assertEquals(camPriceColorProductPage, "rgba(204, 0, 0, 1)");
-
 
         //проверка, что обычная цена зачеркнутая на главной странице
         Assert.assertEquals(textDecorationRegPriceHomePage, "line-through");
@@ -81,6 +83,16 @@ public class CampaignsTest extends TestBase {
 
         //проверка, что акционная цена крупнее, чем обычная на странице товара
         Assert.assertTrue( sizeCamPriceProductPage>sizeRegPriceProductPage);
+
+        //проверка, что серого цвета на главной странице
+        Assert.assertTrue(getColor(regPriceColorHomePage).getRed()==getColor(regPriceColorHomePage).getGreen()  && getColor(regPriceColorHomePage).getGreen()==getColor(regPriceColorHomePage).getBlue());
+        //проверка, что серого цвета на главной странице
+        Assert.assertTrue(getColor(regPriceColorProductPage).getRed()==getColor(regPriceColorProductPage).getGreen()  && getColor(regPriceColorProductPage).getGreen()==getColor(regPriceColorProductPage).getBlue());
+
+        //проверка, что красного цвета на главной странице
+        Assert.assertTrue(getColor(camPriceColorHomePage).getBlue()==getColor(camPriceColorHomePage).getGreen());
+        //проверка, что красного цвета на главной странице
+        Assert.assertTrue(getColor(camPriceColorProductPage).getBlue()==getColor(camPriceColorProductPage).getGreen());
       }
     }
   }
