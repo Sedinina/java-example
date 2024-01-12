@@ -90,9 +90,9 @@ public class CampaignsTest extends TestBase {
         Assert.assertTrue(getColor(regPriceColorProductPage).getRed()==getColor(regPriceColorProductPage).getGreen()  && getColor(regPriceColorProductPage).getGreen()==getColor(regPriceColorProductPage).getBlue());
 
         //проверка, что красного цвета на главной странице
-        Assert.assertTrue(getColor(camPriceColorHomePage).getBlue()==getColor(camPriceColorHomePage).getGreen());
+        Assert.assertTrue(getColor(camPriceColorHomePage).getBlue()==0 && getColor(camPriceColorHomePage).getGreen()==0);
         //проверка, что красного цвета на главной странице
-        Assert.assertTrue(getColor(camPriceColorProductPage).getBlue()==getColor(camPriceColorProductPage).getGreen());
+        Assert.assertTrue(getColor(camPriceColorProductPage).getBlue()==0 && getColor(camPriceColorProductPage).getGreen()==0);
       }
     }
   }
