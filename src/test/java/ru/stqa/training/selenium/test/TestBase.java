@@ -60,6 +60,10 @@ public class TestBase {
     }
   }
 
+  public static void logout(){
+    driver.findElement(By.linkText("Logout")).click();
+  }
+
 
 //  @Before
 //  public void startFirefox() {
@@ -72,7 +76,7 @@ public class TestBase {
   public void startChrome(){
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //неявное ожидание
-    wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    wait = new WebDriverWait(driver, Duration.ofSeconds(30));
   }
 
 
