@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.io.File;
 import java.util.List;
 
 public class AddProductTest extends TestBase {
@@ -33,6 +34,8 @@ public class AddProductTest extends TestBase {
     box.get(0).click();
 
     driver.findElement(By.name("quantity")).sendKeys("10");
+    File file = new File("src\\test\\resources\\yellowDuck.png");
+    driver.findElement(By.name("new_images[]")).sendKeys(file.getAbsolutePath());
     driver.findElement(By.name("date_valid_from")).sendKeys("15.01.2024");
     driver.findElement(By.name("date_valid_to")).sendKeys("25.01.2024");
 
