@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.stqa.LoginPage;
 
@@ -64,6 +65,10 @@ public class TestBase {
     driver.findElement(By.linkText("Logout")).click();
   }
 
+  public void select(String selector, String value){
+    Select select = new Select(driver.findElement(By.cssSelector(selector)));
+    select.selectByVisibleText(value);
+  }
 
 //  @Before
 //  public void startFirefox() {

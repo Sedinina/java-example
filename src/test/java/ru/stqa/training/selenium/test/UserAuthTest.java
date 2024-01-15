@@ -3,6 +3,7 @@ package ru.stqa.training.selenium.test;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.text.SimpleDateFormat;
 
@@ -26,6 +27,7 @@ public class UserAuthTest extends TestBase {
     driver.findElement(By.name("address1")).sendKeys("Address");
     driver.findElement(By.name("postcode")).sendKeys("12345");
     driver.findElement(By.name("city")).sendKeys("City");
+
     Select country = new Select(driver.findElement(By.name("country_code")));
     country.selectByVisibleText("United States");
 
