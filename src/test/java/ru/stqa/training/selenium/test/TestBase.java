@@ -70,19 +70,28 @@ public class TestBase {
     select.selectByVisibleText(value);
   }
 
-//  @Before
-//  public void startFirefox() {
-//    driver = new FirefoxDriver();
-//    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //неявное ожидание
-//    wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//  }
+
+  public List<String> getElementNames(List<WebElement> elements){
+    List<String> names = new ArrayList<String>();
+    for(WebElement e : elements){
+      names.add(e.getText());
+    }
+    return names;
+  }
 
   @Before
-  public void startChrome(){
-    driver = new ChromeDriver();
+  public void startFirefox() {
+    driver = new FirefoxDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //неявное ожидание
-    wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    wait = new WebDriverWait(driver, Duration.ofSeconds(20));
   }
+
+//  @Before
+//  public void startChrome(){
+//    driver = new ChromeDriver();
+//    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //неявное ожидание
+//    wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+//  }
 
 
   @After

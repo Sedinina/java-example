@@ -2,10 +2,13 @@ package ru.stqa.training.selenium.test;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class UserAuthTest extends TestBase {
 
@@ -29,7 +32,18 @@ public class UserAuthTest extends TestBase {
     driver.findElement(By.name("city")).sendKeys("City");
 
     Select country = new Select(driver.findElement(By.name("country_code")));
-    country.selectByVisibleText("United States");
+    driver.findElement(By.className("select2-selection__arrow")).click();
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("select2-search__field"))).sendKeys("United States");
+    List<WebElement> search = driver.findElements(By.className("select2-results"));
+
+    new Actions(driver)
+            .moveToElement(search.get(0))
+            .click()
+            .perform();
+    //country.selectByVisibleText("United States");
+
+   //driver.findElement(By.className("select2-selection__arrow")).click();
+    //wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("select2-search__field"))).sendKeys("United States");
 
     driver.findElement(By.name("email")).sendKeys(email);
     driver.findElement(By.name("phone")).sendKeys("123456789");
