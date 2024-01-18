@@ -31,19 +31,14 @@ public class UserAuthTest extends TestBase {
     driver.findElement(By.name("postcode")).sendKeys("12345");
     driver.findElement(By.name("city")).sendKeys("City");
 
-    Select country = new Select(driver.findElement(By.name("country_code")));
     driver.findElement(By.className("select2-selection__arrow")).click();
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("select2-search__field"))).sendKeys("United States");
-    List<WebElement> search = driver.findElements(By.className("select2-results"));
+    List<WebElement> search = driver.findElements(By.className("select2-results__options"));
 
     new Actions(driver)
             .moveToElement(search.get(0))
             .click()
             .perform();
-    //country.selectByVisibleText("United States");
-
-   //driver.findElement(By.className("select2-selection__arrow")).click();
-    //wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("select2-search__field"))).sendKeys("United States");
 
     driver.findElement(By.name("email")).sendKeys(email);
     driver.findElement(By.name("phone")).sendKeys("123456789");

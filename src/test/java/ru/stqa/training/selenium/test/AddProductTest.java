@@ -12,7 +12,6 @@ import java.util.List;
 public class AddProductTest extends TestBase {
   private LoginTest loginTest;
 
-
   @Test
   public void addProductTest() {
 
@@ -67,8 +66,7 @@ public class AddProductTest extends TestBase {
     List<WebElement> productCartNew = allProductCartNew.findElements(By.className("row"));
     int sizeNew = productCartNew.size();
 
-    Assert.assertTrue(sizeNew>size);
-
+    Assert.assertTrue(sizeNew > size);
 
 
   }
