@@ -1,5 +1,6 @@
 package ru.stqa.training.selenium.test;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,10 @@ public class AddProductTest extends TestBase {
 
     driver.findElement(By.cssSelector("a[href*='catalog']")).click();
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")));
+
+    WebElement allProductCart = driver.findElement(By.cssSelector("table.dataTable"));
+    List<WebElement> productCart = allProductCart.findElements(By.className("row"));
+    int size = productCart.size();
 
     driver.findElement(By.linkText("Add New Product")).click();
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")));
@@ -56,6 +61,15 @@ public class AddProductTest extends TestBase {
     driver.findElement(By.name("gross_prices[USD]")).sendKeys("12.2");
     driver.findElement(By.name("gross_prices[EUR]")).sendKeys("15.2");
     driver.findElement(By.name("save")).click();
+
+
+    WebElement allProductCartNew = driver.findElement(By.cssSelector("table.dataTable"));
+    List<WebElement> productCartNew = allProductCartNew.findElements(By.className("row"));
+    int sizeNew = productCartNew.size();
+
+    Assert.assertTrue(sizeNew>size);
+
+
 
   }
 

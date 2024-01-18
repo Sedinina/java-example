@@ -19,11 +19,7 @@ public class AddProductCartTest extends TestBase {
       List<WebElement> product = allProduct.findElements(By.cssSelector("li[class*=product]"));
       product.get(i).click();
       driver.findElement(By.name("add_cart_product")).click();
-      try {
-        driver.findElement(By.linkText("View full page")).click();
-      } catch (Exception e) {
-        wait.until(stalenessOf(numb_item));
-      }
+      wait.until(stalenessOf(numb_item));
     }
 
     driver.findElement(By.cssSelector("div#cart-wrapper a.link")).click();
