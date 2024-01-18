@@ -79,19 +79,19 @@ public class TestBase {
     return names;
   }
 
-  @Before
-  public void startFirefox() {
-    driver = new FirefoxDriver();
-    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //неявное ожидание
-    wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-  }
-
 //  @Before
-//  public void startChrome(){
-//    driver = new ChromeDriver();
+//  public void startFirefox() {
+//    driver = new FirefoxDriver();
 //    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //неявное ожидание
-//    wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+//    wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 //  }
+
+  @Before
+  public void startChrome(){
+    driver = new ChromeDriver();
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //неявное ожидание
+    wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+  }
 
 
   @After
