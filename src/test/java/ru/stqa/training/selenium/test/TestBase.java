@@ -6,21 +6,56 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
+import org.openqa.selenium.support.events.EventFiringDecorator;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.stqa.LoginPage;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 public class TestBase {
 
-  public static WebDriver driver;
+  public static EventFiringWebDriver driver;
   public static WebDriverWait wait;
+
+//  public static class MyListener extends AbstractWebDriverEventListener {
+//    @Override
+//    public void beforeFindBy(By by, WebElement element, WebDriver driver) {
+//      System.out.println(by);
+//    }
+//
+//    @Override
+//    public void afterFindBy(By by, WebElement element, WebDriver driver) {
+//      System.out.println(by + " found");
+//    }
+//
+//    @Override
+//    public void onException(Throwable throwable, WebDriver driver) {
+//      System.out.println(throwable);
+//      File tmp = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//      File screen = new File("screen " + System.currentTimeMillis()+".png");
+//      try{
+//        Files.copy(tmp.toPath(), screen.toPath());
+//      }catch (IOException e){
+//        e.printStackTrace();
+//      }
+//      System.out.println(screen);
+//    }
+//  }
 
 /*  @Before
   public void startChrome() {
@@ -61,19 +96,19 @@ public class TestBase {
     }
   }
 
-  public static void logout(){
+  public static void logout() {
     driver.findElement(By.linkText("Logout")).click();
   }
 
-  public void select(String selector, String value){
+  public void select(String selector, String value) {
     Select select = new Select(driver.findElement(By.cssSelector(selector)));
     select.selectByVisibleText(value);
   }
 
 
-  public List<String> getElementNames(List<WebElement> elements){
+  public List<String> getElementNames(List<WebElement> elements) {
     List<String> names = new ArrayList<String>();
-    for(WebElement e : elements){
+    for (WebElement e : elements) {
       names.add(e.getText());
     }
     return names;
@@ -87,9 +122,10 @@ public class TestBase {
 //  }
 
   @Before
-  public void startChrome(){
-    driver = new ChromeDriver();
-  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //неявное ожидание
+  public void startChrome() {
+    driver = new EventFiringWebDriver(new ChromeDriver());
+    //driver.register(new MyListener());
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //неявное ожидание
     wait = new WebDriverWait(driver, Duration.ofSeconds(5));
   }
 
