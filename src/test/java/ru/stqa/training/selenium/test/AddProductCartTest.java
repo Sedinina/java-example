@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -15,19 +16,18 @@ public class AddProductCartTest extends TestBase {
 
     for (int i = 0; i < 3; i++) {
       driver.get("http://localhost/litecart/en/");
-      WebElement numb_item = driver.findElement(By.cssSelector("span.quantity"));
+
       WebElement allProduct = driver.findElement(By.id("box-most-popular"));
       List<WebElement> product = allProduct.findElements(By.cssSelector("li[class*=product]"));
       product.get(i).click();
 
-      if (driver.findElement(By.cssSelector("h1.title")).getText().equals("Yellow Duck")) {
-        driver.findElements(By.className("options[Size]")).get(1).click();
+      if (isElementPresent(By.className("options"))) {
+        Select select = new Select(driver.findElement(By.cssSelector("select")));
+        select.selectByValue("Small");
       }
+
       driver.findElement(By.name("add_cart_product")).click();
-
-      wait.until(stalenessOf(numb_item));
       wait.until(ExpectedConditions.attributeToBe(By.cssSelector("span.quantity"), "innerText", String.valueOf(i + 1)));
-
     }
 
     driver.findElement(By.cssSelector("div#cart-wrapper a.link")).click();
