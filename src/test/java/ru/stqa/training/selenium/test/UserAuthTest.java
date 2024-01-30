@@ -5,10 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 public class UserAuthTest extends TestBase {
 
@@ -30,15 +28,6 @@ public class UserAuthTest extends TestBase {
     driver.findElement(By.name("address1")).sendKeys("Address");
     driver.findElement(By.name("postcode")).sendKeys("12345");
     driver.findElement(By.name("city")).sendKeys("City");
-
-//    driver.findElement(By.className("select2-selection__arrow")).click();
-//    wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("select2-search__field"))).sendKeys("United States");
-//    List<WebElement> search = driver.findElements(By.cssSelector("ul.select2-results__options"));
-//
-//    new Actions(driver)
-//            .moveToElement(search.get(0))
-//            .click()
-//            .perform();
 
     WebElement US_locator = driver.findElement(By.cssSelector("form table tbody tr td span.select2-selection.select2-selection--single"));
     new Actions(driver).moveToElement(US_locator).click().sendKeys("United States" + Keys.ENTER).perform();

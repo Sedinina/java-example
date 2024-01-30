@@ -82,7 +82,7 @@ public class TestBase {
     try {
       driver.findElement(locator);
       return true;
-    } catch (NoSuchElementException ex) { //
+    } catch (NoSuchElementException ex) {
       return false;
     }
   }
